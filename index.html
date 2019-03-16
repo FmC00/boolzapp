@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- JS: HANDLEBARS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
+  <!-- script del template -->
+    <script id="box-template" type="text/x-handlebars-template">
+      
+    </script>
+    <script src="script.js" charset="utf-8"></script>
+    <title></title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="main-header">
+        <div class="chat-box">
+          <div class="chat-box-wrapper">
+            <div class="chat-box-wrapper-left">
+              <div class="profile-pic-container">
+                <img class="profile-pic" src="img/profile-pic.png" alt="">
+              </div>
+              <div class="icons-container">
+                <i class="far fa-user-circle"></i>
+                <i class="fas fa-comment-alt"></i>
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+            </div>
+            <div class="chat-box-wrapper-right">
+              <div class="header-wrapper-left">
+                <div class="profile-pic-container">
+                  <img class="profile-pic" src="img/profile-pic.png" alt="">
+                </div>
+                <div class="ultimo-accesso">
+                  <b>Sakamoto</b>
+                  <p>Ultimo accesso oggi alle 17:35</p>
+                </div>
+              </div>
+              <div class="header-wrapper-right">
+                <div class="icons-container">
+                  <i class="far fa-user-circle"></i>
+                  <i class="fas fa-comment-alt"></i>
+                  <i class="fas fa-ellipsis-v"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-box-main">
+            <div class="chat-box-main-left">
+              <div class="notifiche">
+                <div class="bell-container">
+                  <i class="fas fa-bell-slash"></i>
+                </div>
+                <div class="notifiche-right">
+                  <b>Ricevi notifiche di nuovi messaggi</b>
+                  <p>Attiva notifiche desktop</p>
+                </div>
+              </div>
+              <div class="search-bar">
+                <input id="search-bar"type="text" name="" value="">
+                <div class="search-icon-box">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <div class="conversation-single-container">
+                <div class="conversation-single">
+                  <div class="profile-pic-container">
+                    <img class="profile-pic" src="img/profile-pic.png" alt="">
+                  </div>
+                  <div class="chat-users-container">
+                    <div class="chat-users-content">
+                      <b class="contact">Sakamoto</b>
+                      <p>hi!</p>
+                    </div>
+                  </div>
+                  <div class="hour-container">
+                    <p>17:35</p>
+                  </div>
+                </div>
+                <div class="conversation-single">
+                  <div class="profile-pic-container">
+                    <img class="profile-pic" src="img/profile-pic.png" alt="">
+                  </div>
+                  <div class="chat-users-container">
+                    <div class="chat-users-content">
+                      <b class="contact">Laura</b>
+                      <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+                  </div>
+                  <div class="hour-container">
+                    <p>17:35</p>
+                  </div>
+                </div>
+                <div class="conversation-single">
+                  <div class="profile-pic-container">
+                    <img class="profile-pic" src="img/profile-pic.png" alt="">
+                  </div>
+                  <div class="chat-users-container">
+                    <div class="chat-users-content">
+                      <b class="contact">Mark</b>
+                      <p>Hey!</p>
+                    </div>
+                  </div>
+                  <div class="hour-container">
+                    <p>17:35</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-box-main-right">
+              <!-- conversazione di sakamoto -->
+              <div class="conversation selected">
+                <div class="message-wrapper">
+                  <div class="user-generated-message received">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <span>17:15</span>
+                    <div class="delete-menu">
+                      <div class="delete-menu-top">
+                        <span id="delete-msg"> Cancella </span>
+                      </div>
+                      <div class="delete-menu-bottom">
+                        <span id="copy-msg"> Copia </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="message-wrapper">
+                  <div class="user-generated-message sent">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <span>17:15</span>
+                    <!-- questo è il delete menu -->
+                    <div class="delete-menu">
+                      <div class="delete-menu-top">
+                        <span id="delete-msg"> Cancella </span>
+                      </div>
+                      <div class="delete-menu-bottom">
+                        <span id="copy"> Copia </span>
+                      </div>
+                    </div>
+                    <!-- fine delete menu -->
+                  </div>
+                </div>
+              </div>
+              <!-- conversazione di laura -->
+              <div class="conversation">
+                <div class="message-wrapper">
+                  <div class="user-generated-message received">
+                    <p>ciao sono Laura</p>
+                    <span>17:15</span>
+                  </div>
+                </div>
+                <div class="message-wrapper">
+                  <div class="user-generated-message sent">
+                    <p>Ciao laura!</p>
+                    <span>17:15</span>
+                  </div>
+                </div>
+              </div>
+              <!-- conversazione di mark -->
+              <div class="conversation">
+                <div class="message-wrapper">
+                  <div class="user-generated-message received">
+                    <p>ciao sono Mark</p>
+                    <span>17:15</span>
+                  </div>
+                </div>
+                <div class="message-wrapper">
+                  <div class="user-generated-message sent">
+                    <p>ciao Mark!</p>
+                    <span>17:15</span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-chat-container">
+                <div class="icon-emoticon-container">
+                  <i class="far fa-smile"></i>
+                </div>
+                <div class="user-input-container">
+                  <input id="usr-content" type="text" name="" value="" placeholder="Hello World!">
+                </div>
+                <div class="icon-rec-container">
+                  <i class="fas fa-microphone"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
