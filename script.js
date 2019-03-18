@@ -1,78 +1,42 @@
-function AddMessage(content) {
+function addMessage() {
 
-  var conversation = $(".conversation.selected")
+  var conversation = $(".conversation.selected");
+  var usrTXT = $("#usr-content");
+  var messaggio = $("#message-template > .user-generated-message")
 
-  var messageWrapper = document.createElement("div")
-  var message = document.createElement("div");
-  var messageContent = document.createElement("p");
-  var messageDetail = document.createElement("span");
-  var deletemenu = document.createElement("div")
-  var deleteMenuTop = document.createElement("div")
-  var deleteMenuSpanTop = document.createElement("span")
-  var deleteMenuBottom = document.createElement("div")
-  var deleteMenuSpanBottom = document.createElement("span")
+  var data = {
+    testoMSG : usrTXT.val(),
+    class : "sent"
+  };
 
-  $(deletemenu).addClass("delete-menu");
-  $(deleteMenuTop).addClass("delete-menu-top");
-  $(deleteMenuSpanTop).attr("id","delete-msg");
-  $(deleteMenuBottom).addClass("delete-menu-bottom");
-  $(deleteMenuSpanBottom).attr("id","copy-msg");
-  $(messageWrapper).addClass("message-wrapper");
-  $(message).addClass("user-generated-message sent");
-
-  $(messageContent).text(content);
-  $(messageDetail).text("18:00");
-  $(deleteMenuSpanTop).text("Cancella")
-  $(deleteMenuSpanBottom).text("Copia")
+  var msgTemplate = $("#message-template").html();
+  var compile = Handlebars.compile(msgTemplate);
+  var finalHTML = compile(data)
 
 
-  message.append(messageContent);
-  message.append(messageDetail);
-  message.append(deletemenu)
-  deletemenu.append(deleteMenuTop)
-  deleteMenuTop.append(deleteMenuSpanTop)
-  deletemenu.append(deleteMenuBottom)
-  deleteMenuBottom.append(deleteMenuSpanBottom)
-  messageWrapper.append(message);
-  conversation.append(messageWrapper);
-
+  conversation.append(finalHTML)
 };
 
 function autoAnswr() {
 
   var conversation = $(".conversation.selected");
 
-  var messageWrapper = document.createElement("div");
-  var message = document.createElement("div");
-  var messageContent = document.createElement("p");
-  var messageDetail = document.createElement("span");
-  var deletemenu = document.createElement("div")
-  var deleteMenuTop = document.createElement("div")
-  var deleteMenuSpanTop = document.createElement("span")
-  var deleteMenuBottom = document.createElement("div")
-  var deleteMenuSpanBottom =document.createElement("span")
+  var usrTXT = $("#usr-content");
+  var messaggio = $("#message-template > .user-generated-message")
 
-  $(deletemenu).addClass("delete-menu");
-  $(deleteMenuTop).addClass("delete-menu-top");
-  $(deleteMenuSpanTop).attr("id","delete-msg");
-  $(deleteMenuBottom).addClass("delete-menu-bottom");
-  $(deleteMenuSpanBottom).attr("id","copy-msg");
-  $(messageWrapper).addClass("message-wrapper");
-  $(message).addClass("user-generated-message received");
-  $(messageContent).text("ciao!");
-  $(messageDetail).text("18:00");
-  $(deleteMenuSpanTop).text("Cancella")
-  $(deleteMenuSpanBottom).text("Copia")
+  var data = {
+    testoMSG : "ciao!",
+    class : "received"
+  };
 
-  message.append(messageContent);
-  message.append(messageDetail);
-  message.append(deletemenu)
-  deletemenu.append(deleteMenuTop)
-  deleteMenuTop.append(deleteMenuSpanTop)
-  deletemenu.append(deleteMenuBottom)
-  deleteMenuBottom.append(deleteMenuSpanBottom)
-  messageWrapper.append(message);
-  conversation.append(messageWrapper);
+  var msgTemplate = $("#message-template").html();
+  var compile = Handlebars.compile(msgTemplate);
+  var finalHTML = compile(data)
+
+
+  conversation.append(finalHTML)
+
+
 
 };
 
@@ -81,7 +45,7 @@ function sendUsrMessage(e) {
   var keyPressed = e.which
 
   if(keyPressed == 13) {
-    AddMessage(txt.val());
+    addMessage();
     txt.val("");
     setTimeout(function() {
       autoAnswr();

@@ -7,10 +7,23 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- JS: HANDLEBARS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
-  <!-- script del template -->
-    <script id="box-template" type="text/x-handlebars-template">
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
+    <!-- script del template -->
+    <script id="message-template" type="text/x-handlebars-template">
+      <div class="message-wrapper">
+        <div class="user-generated-message {{ class }}">
+          <p>{{ testoMSG }}</p>
+          <span>17:15</span>
+          <div class="delete-menu">
+            <div class="delete-menu-top">
+              <span id="delete-msg"> Cancella </span>
+            </div>
+            <div class="delete-menu-bottom">
+              <span id="copy-msg"> Copia </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </script>
     <script src="script.js" charset="utf-8"></script>
     <title></title>

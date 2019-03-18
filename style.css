@@ -265,7 +265,8 @@ b {
 .user-generated-message {
   padding: 5px;
   max-width: 400px;
-  padding-bottom: 15px;
+  min-width: 150px;
+  padding-bottom: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
   position: relative;
